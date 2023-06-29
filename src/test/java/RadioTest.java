@@ -4,6 +4,18 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
     // Тесты на выбор и управление станциями
     @Test
+    public void maxNumberStation50(){
+        Radio max50 = new Radio(50);
+        Assertions.assertEquals(49, max50.getNumberOfLastStation());
+    }
+
+    @Test
+    public void maxNumberStation9(){
+        Radio max9 = new Radio();
+        Assertions.assertEquals(9, max9.getNumberOfLastStation());
+    }
+
+    @Test
     public void enterNumberStation() {
         Radio enter = new Radio();
         enter.setNumberStation(4);
@@ -24,8 +36,8 @@ public class RadioTest {
     @Test
     public void enterMoreMaxNumberStation() {
         Radio moreMax = new Radio();
-        moreMax.setNumberStation(10);
-        int expected = 9;
+        moreMax.setNumberStation(11);
+        int expected = 10;
         int actually = moreMax.getNumberStation();
         Assertions.assertEquals(expected, actually);
     }
@@ -33,7 +45,7 @@ public class RadioTest {
     @Test
     public void next() {
         Radio next = new Radio();
-        next.setNumberStation(9);
+        next.setNumberStation(10);
         next.next();
         int expected = 0;
         int actually = next.getNumberStation();
@@ -55,7 +67,7 @@ public class RadioTest {
         Radio prev = new Radio();
         prev.setNumberStation(0);
         prev.prev();
-        int expected = 9;
+        int expected = 10;
         int actually = prev.getNumberStation();
         Assertions.assertEquals(expected, actually);
     }
