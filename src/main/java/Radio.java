@@ -1,6 +1,6 @@
 public class Radio {
     // Данные по станциям
-    public int numberStation;
+    private int numberStation;
 
     public void setNumberStation(int newNumberStation) {
         if (newNumberStation < 0) {
@@ -33,7 +33,7 @@ public class Radio {
     }
 
     // Данные по громкости
-    public int volume;
+   private int volume;
 
     public void setVolume(int newVolume) {
         if (newVolume < 0) {
