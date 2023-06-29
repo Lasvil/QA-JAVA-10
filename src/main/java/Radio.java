@@ -6,10 +6,11 @@ public class Radio {
     private int numberOfLastStation = maxNumberStation - 1;
     private int numberStation;
 
-    public Radio(){
+    public Radio() {
 
     }
-    public Radio(int quantityStation){
+
+    public Radio(int quantityStation) {
         this.maxNumberStation = minNumberStation + quantityStation;
         this.numberOfLastStation = maxNumberStation - 1;
     }
@@ -28,9 +29,10 @@ public class Radio {
         return numberStation;
     }
 
-    public int getNumberOfLastStation(){
+    public int getNumberOfLastStation() {
         return numberOfLastStation;
     }
+
     public int next() {
         numberStation = numberStation + 1;
         if (numberStation > maxNumberStation) {
@@ -48,7 +50,7 @@ public class Radio {
     }
 
     // Данные по громкости
-   private int volume;
+    private int volume;
 
     public void setVolume(int newVolume) {
         if (newVolume < 0) {

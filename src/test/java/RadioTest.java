@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
     // Тесты на выбор и управление станциями
     @Test
-    public void maxNumberStation50(){
+    public void maxNumberStation50() {
         Radio max50 = new Radio(50);
         Assertions.assertEquals(49, max50.getNumberOfLastStation());
     }
 
     @Test
-    public void maxNumberStation9(){
+    public void maxNumberStation9() {
         Radio max9 = new Radio();
         Assertions.assertEquals(9, max9.getNumberOfLastStation());
     }
