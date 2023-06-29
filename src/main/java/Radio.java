@@ -1,13 +1,26 @@
 public class Radio {
     // Данные по станциям
+    private int minNumberStation = 0;
+    private int maxNumberStation = 10;
+    private int currentNumberStation = 0;
+    private int numberOfLastStation = maxNumberStation - 1;
     private int numberStation;
 
+    public Radio() {
+
+    }
+
+    public Radio(int quantityStation) {
+        this.maxNumberStation = minNumberStation + quantityStation;
+        this.numberOfLastStation = maxNumberStation - 1;
+    }
+
     public void setNumberStation(int newNumberStation) {
-        if (newNumberStation < 0) {
-            newNumberStation = 0;
+        if (newNumberStation < minNumberStation) {
+            newNumberStation = minNumberStation;
         }
-        if (newNumberStation > 9) {
-            newNumberStation = 9;
+        if (newNumberStation > maxNumberStation) {
+            newNumberStation = maxNumberStation;
         }
         numberStation = newNumberStation;
     }
@@ -16,24 +29,28 @@ public class Radio {
         return numberStation;
     }
 
+    public int getNumberOfLastStation() {
+        return numberOfLastStation;
+    }
+
     public int next() {
         numberStation = numberStation + 1;
-        if (numberStation > 9) {
-            numberStation = 0;
+        if (numberStation > maxNumberStation) {
+            numberStation = minNumberStation;
         }
         return numberStation;
     }
 
     public int prev() {
         numberStation = numberStation - 1;
-        if (numberStation < 0) {
-            numberStation = 9;
+        if (numberStation < minNumberStation) {
+            numberStation = maxNumberStation;
         }
         return numberStation;
     }
 
     // Данные по громкости
-   private int volume;
+    private int volume;
 
     public void setVolume(int newVolume) {
         if (newVolume < 0) {
