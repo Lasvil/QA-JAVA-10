@@ -1,84 +1,77 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
-    // Данные по станциям
     private int minNumberStation = 0;
     private int maxNumberStation = 10;
     private int currentNumberStation = 0;
-    private int numberOfLastStation = maxNumberStation - 1;
+    private int numberOfLastStation;
     private int numberStation;
+    private int volume;
 
     public Radio() {
-
+        this.numberOfLastStation = this.maxNumberStation - 1;
     }
 
-    public Radio(int quantityStation) {
-        this.maxNumberStation = minNumberStation + quantityStation;
-        this.numberOfLastStation = maxNumberStation - 1;
+    public Radio(int minNumberStation, int maxNumberStation, int currentNumberStation, int numberOfLastStation, int numberStation, int volume) {
+        this.numberOfLastStation = this.maxNumberStation - 1;
+        this.minNumberStation = minNumberStation;
+        this.maxNumberStation = maxNumberStation;
+        this.currentNumberStation = currentNumberStation;
+        this.numberOfLastStation = numberOfLastStation;
+        this.numberStation = numberStation;
+        this.volume = volume;
     }
 
-    public void setNumberStation(int newNumberStation) {
-        if (newNumberStation < minNumberStation) {
-            newNumberStation = minNumberStation;
-        }
-        if (newNumberStation > maxNumberStation) {
-            newNumberStation = maxNumberStation;
-        }
-        numberStation = newNumberStation;
+    public int getMinNumberStation() {
+        return this.minNumberStation;
     }
 
-    public int getNumberStation() {
-        return numberStation;
+    public int getMaxNumberStation() {
+        return this.maxNumberStation;
+    }
+
+    public int getCurrentNumberStation() {
+        return this.currentNumberStation;
     }
 
     public int getNumberOfLastStation() {
-        return numberOfLastStation;
+        return this.numberOfLastStation;
     }
 
-    public int next() {
-        numberStation = numberStation + 1;
-        if (numberStation > maxNumberStation) {
-            numberStation = minNumberStation;
-        }
-        return numberStation;
-    }
-
-    public int prev() {
-        numberStation = numberStation - 1;
-        if (numberStation < minNumberStation) {
-            numberStation = maxNumberStation;
-        }
-        return numberStation;
-    }
-
-    // Данные по громкости
-    private int volume;
-
-    public void setVolume(int newVolume) {
-        if (newVolume < 0) {
-            newVolume = 0;
-        }
-        if (newVolume > 100) {
-            newVolume = 100;
-        }
-        volume = newVolume;
+    public int getNumberStation() {
+        return this.numberStation;
     }
 
     public int getVolume() {
-        return volume;
+        return this.volume;
     }
 
-    public int plus() {
-        volume = volume + 1;
-        if (volume > 100) {
-            volume = 100;
-        }
-        return volume;
+    public void setMinNumberStation(int minNumberStation) {
+        this.minNumberStation = minNumberStation;
     }
 
-    public int minus() {
-        volume = volume - 1;
-        if (volume < 0) {
-            volume = 0;
-        }
-        return volume;
+    public void setMaxNumberStation(int maxNumberStation) {
+        this.maxNumberStation = maxNumberStation;
+    }
+
+    public void setCurrentNumberStation(int currentNumberStation) {
+        this.currentNumberStation = currentNumberStation;
+    }
+
+    public void setNumberOfLastStation(int numberOfLastStation) {
+        this.numberOfLastStation = numberOfLastStation;
+    }
+
+    public void setNumberStation(int numberStation) {
+        this.numberStation = numberStation;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
 }
