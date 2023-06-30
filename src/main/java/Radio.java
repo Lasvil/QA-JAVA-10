@@ -1,6 +1,7 @@
 public class Radio {
     // Данные по станциям
     private int numberStation;
+    private int volume;
 
     public void setNumberStation(int newNumberStation) {
         if (newNumberStation < 0) {
@@ -12,8 +13,22 @@ public class Radio {
         numberStation = newNumberStation;
     }
 
+    public void setVolume(int newVolume) {
+        if (newVolume < 0) {
+            newVolume = 0;
+        }
+        if (newVolume > 100) {
+            newVolume = 100;
+        }
+        volume = newVolume;
+    }
+
     public int getNumberStation() {
         return numberStation;
+    }
+
+    public int getVolume() {
+        return volume;
     }
 
     public int next() {
@@ -30,23 +45,6 @@ public class Radio {
             numberStation = 9;
         }
         return numberStation;
-    }
-
-    // Данные по громкости
-   private int volume;
-
-    public void setVolume(int newVolume) {
-        if (newVolume < 0) {
-            newVolume = 0;
-        }
-        if (newVolume > 100) {
-            newVolume = 100;
-        }
-        volume = newVolume;
-    }
-
-    public int getVolume() {
-        return volume;
     }
 
     public int plus() {
